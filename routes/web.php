@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +13,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// routes/web.php
 
+Route::post('/contact-submit', [ContactController::class, 'submit'])->name('contact.submit');
 
 Route::get('/', function () {
     return view('home');

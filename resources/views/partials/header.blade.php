@@ -6,7 +6,7 @@
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2c3e50;">
     <div class="container">
-        <a class="navbar-brand" href="#">Priority QB Services</a>
+        <a class="navbar-brand" href="{{ url('/') }}">Priority QB Services</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
