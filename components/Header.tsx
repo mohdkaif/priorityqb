@@ -1,57 +1,59 @@
 'use client';
 
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function Header() {
+  const [navOpen, setNavOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
   return (
     <>
-      <div className="promo-banner">
-        Get Live Expert Assisted FREE for 30 days.{' '}
-        <a href="#" data-bs-toggle="modal" data-bs-target="#contactModal">
-          Buy now
-        </a>
-      </div>
-      <nav
-        className="navbar navbar-expand-lg navbar-dark"
-        style={{ backgroundColor: '#2c3e50' }}
-      >
+      <div className="topBar">
         <div className="container">
-          <Link className="navbar-brand" href="/">
-            Priority QB Services
+          <Link href="/" className="topBarLogoLink">
+            <img src="/img/logo.png" alt="Uniqonic Revolutions" className="topBarLogo" />
           </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon" />
+          <div className="topBarRight">
+            <div className="topBarItem">
+              <i className="far fa-clock" />
+              <div>
+                <p>Opening Hour</p>
+                <h6>PST 5:00am to 6:00pm</h6>
+              </div>
+            </div>
+            <div className="topBarItem">
+              <i className="far fa-envelope" />
+              <div>
+                <p>Email Us</p>
+                <h6>care@uniqonicrevolutions.com</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <nav className="navWrap">
+        <div className="container">
+          <button type="button" className="navToggle" onClick={() => setNavOpen(!navOpen)} aria-label="Toggle menu">
+            MENU
           </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
-                <Link className="nav-link" href="/">
-                  Home
-                </Link>
+          <div className={`navMenu ${navOpen ? 'open' : ''}`}>
+            <ul className="navList">
+              <li><Link href="/" onClick={() => setNavOpen(false)}>Home</Link></li>
+              <li className="navDropdown">
+                <button type="button" onClick={() => setDropdownOpen(!dropdownOpen)}>
+                  What we do ▾
+                </button>
+                <div className={`navDropdownPanel ${dropdownOpen ? 'open' : ''}`}>
+                  <Link href="/technical-support" onClick={() => { setDropdownOpen(false); setNavOpen(false); }}>Technical Support</Link>
+                  <Link href="/payroll-service" onClick={() => { setDropdownOpen(false); setNavOpen(false); }}>Payroll Service</Link>
+                  <Link href="/bookkeeping-and-accounting" onClick={() => { setDropdownOpen(false); setNavOpen(false); }}>Bookkeeping & Accounting</Link>
+                </div>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" href="/#services">
-                  Services
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" href="/#pricing">
-                  Pricing
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" href="/#contact">
-                  Contact
-                </Link>
-              </li>
+              <li><Link href="/pricing" onClick={() => setNavOpen(false)}>Pricing</Link></li>
+              <li><Link href="/security" onClick={() => setNavOpen(false)}>Security</Link></li>
+              <li><Link href="/contact" onClick={() => setNavOpen(false)}>Contact Us</Link></li>
             </ul>
           </div>
         </div>

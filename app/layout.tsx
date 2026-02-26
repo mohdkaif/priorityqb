@@ -1,12 +1,18 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import './globals.css';
 import Layout from '@/components/Layout';
 import ExternalAssets from '@/components/ExternalAssets';
 
 export const metadata: Metadata = {
-  title: 'Priority QB Services',
-  description: 'Simplifying your financial management with QuickBooks solutions.',
+  title: 'Uniqonic Revolutions',
+  description: 'Manage your Accounting & Bookkeeping with Ease. Technical Support, Payroll, Bookkeeping & Accounting.',
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({

@@ -1,0 +1,254 @@
+<?php
+    require_once('configue.php');
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Uniqonic Revolutions</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+   
+    <div class="container-fluid py-4 px-5 wow fadeIn" data-wow-delay="0.1s" style="height:190px">
+        <div class="row align-items-center top-bar">
+            <div class="col-lg-4 col-md-12 text-center text-lg-start">
+                <a href="index.php" class="navbar-brand m-0 p-0">
+                    <img src="img/logo.png" alt="Logo">
+                </a>
+            </div>
+            <div class="col-lg-8 col-md-7 d-none d-lg-block">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="d-flex align-items-center justify-content-end">
+                            <div class="flex-shrink-0 btn-lg-square border rounded-circle">
+                                <i class="far fa-clock text-primary"></i>
+                            </div>
+                            <div class="ps-3">
+                                <p class="mb-2">Opening Hour</p>
+                                <h6 class="mb-0">PST 5:00am to 6:00pm</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="d-flex align-items-center">
+                        
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="d-flex align-items-center"  style="margin-left:-100px">
+                            <div class="flex-shrink-0 btn-lg-square border rounded-circle">
+                                <i class="far fa-envelope text-primary"></i>
+                            </div>
+                            <div class="ps-3">
+                                <p class="mb-2">Email Us</p>
+                                <h6 class="mb-0">care@uniqonicrevolutions.com</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Brand & Contact End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-primary navbar-dark sticky-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
+        <a href="#" class="navbar-brand ms-3 d-lg-none">MENU</a>
+        <button type="button" class="navbar-toggler me-3" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav me-auto p-3 p-lg-0" style="font-size:17px">
+                <a href="index.php" class="nav-item nav-link">Home</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">What we do </a>
+                    <div class="dropdown-menu border-0 rounded-0 rounded-bottom m-0"> 
+                        <a href="technical_support.html" class="dropdown-item">Technical Support</a>
+                        <a href="payroll_service.html" class="dropdown-item">Payroll Service</a>
+                        <a href="bookkeeping_and_accounting.html" class="dropdown-item">Bookkeeping & Accounting</a>
+                    </div>
+                </div>
+                <a href="pricing.php" class="nav-item nav-link active">Pricing</a>
+                <a href="security.html" class="nav-item nav-link">Security</a>
+                <a href="contact.php" class="nav-item nav-link">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <div class="container-fluid page-header-pricing py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container text-center py-5">
+            <h1 class="display-4 text-white animated slideInDown mb-3">Pricing</h1>
+        </div>
+    </div>
+
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-4">
+                <?php
+                    $result = mysqli_query($conn,"SELECT * FROM tbl_pricing");
+                   
+                        while($row = mysqli_fetch_array($result)) {
+                ?> 
+                <div class="col-lg-4 col-md-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <img class="img-fluid rounded mb-2" src="img/book.jpg" alt="">
+                    <h6 class="mb-0" align="center" style="font-weight: bold;font-size:20px;">
+                        <?php echo $row['product_name']; ?><br/>
+                        <?php echo $row['duration']; ?><br/><br/>
+                        <?php echo $row['price']; ?>
+                    </h6><br/>
+                    <div align="center">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+                            Contact-Us  
+                        </button>
+                    </div>
+                </div>
+                <?php
+                    }
+                ?>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal" id="myModal" >
+      <div class="modal-dialog modal-sm" >
+        <div class="modal-content" style="width:400px;">
+    
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Contact-Us</h4>
+            
+          </div>
+    
+          <!-- Modal body -->
+          <div class="modal-body">
+              <div class="row g-12">
+              <h4>care@uniqonicrevolutions.com</h4>
+            <!--<form method="POST" action="mail.php">-->
+            <!--    <div class="row g-12">-->
+            <!--        <div class="col-md-12">-->
+            <!--            <div class="form-floating" style="margin-bottom:10px">-->
+            <!--                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name">-->
+            <!--                <label for="name">Your Name</label>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--        <div class="col-md-12">-->
+            <!--            <div class="form-floating"  style="margin-bottom:10px">-->
+            <!--                <input type="email" name="email" class="form-control" id="email" placeholder="Your Email">-->
+            <!--                <label for="email">Your Email</label>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--        <div class="col-12">-->
+            <!--            <div class="form-floating"  style="margin-bottom:10px">-->
+            <!--                <input type="text" name="subject" class="form-control" id="subject" placeholder="Subject">-->
+            <!--                <label for="subject">Subject</label>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--        <div class="col-12">-->
+            <!--            <div class="form-floating"  name="message" style="margin-bottom:10px">-->
+            <!--                <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 200px"></textarea>-->
+            <!--                <label for="message">Message</label>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--        <div class="col-12 text-center"  style="margin-bottom:10px">-->
+            <!--            <button class="btn btn-primary rounded-pill py-3 px-5" name="submit" type="submit">Send Message</button>-->
+            <!--        </div>-->
+            <!--    </div>-->
+            <!--</form>-->
+            </div>
+          </div>
+    
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          </div>
+    
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-body footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-6 col-md-6">
+                    <h5 class="text-light mb-4">Contact Us</h5>
+                    <!--<p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>-->
+                    <!--No.13, 66, 258, 1st Floor,</p>-->
+                    <!--<p class="mb-2" style="margin-left:30px;">14th Main, 4th Cross,</p>-->
+                    <!--<p class="mb-2" style="margin-left:30px;">HSR Layout,5th Sector,</p>-->
+                    <!--<p class="mb-2" style="margin-left:30px;">Bangalore-560102</p> -->
+                    
+                    <!--<p class="mb-2"><i class="fa fa-phone-alt me-3"></i>8884201418</p>-->
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>care@uniqonicrevolutions.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-square btn-outline-secondary rounded-circle me-0" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a href="index.php">Uniqonic Revolutions</a>, All Right Reserved.
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+.serviceSection {
+  padding: clamp(1.25rem, 4vw, 2.5rem) 0;
+}
+.block {
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: clamp(1rem, 3vw, 1.5rem);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.block:last-child {
+  margin-bottom: 0;
+}
+.blockTitle {
+  color: var(--primary);
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-align: center;
+}
+.blockGrid {
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+@media (min-width: 768px) {
+  .blockGrid {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+}
+.blockSubtitle {
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  margin-bottom: 0.75rem;
+  color: var(--text);
+  font-weight: 600;
+}
+.list {
+  list-style: square;
+  padding-left: 1.25rem;
+  color: var(--text);
+  line-height: 1.7;
+  font-size: clamp(0.875rem, 1.2vw, 1rem);
+}
+.list li {
+  margin-bottom: 0.5rem;
+}
+.blockImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.blockImg img {
+  max-width: 100%;
+  height: auto;
+}
