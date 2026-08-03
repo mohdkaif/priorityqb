@@ -1,142 +1,208 @@
-/* Shared service page layout - responsive & attractive */
-.overviewSection,
-.whyChooseSection {
-  padding: clamp(2rem, 6vw, 3.5rem) var(--container-padding);
+.wrap {
+  padding: clamp(2rem, 5vw, 3.5rem) 0;
 }
 
-.overviewSection {
-  background: var(--color-surface);
+.wrapAlt {
+  padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(3rem, 6vw, 4rem);
+  background: #ffffff;
+  border-top: 1px solid #dce5ee;
 }
 
-.whyChooseSection {
-  background: var(--color-surface-2);
+.inner {
+  width: min(1120px, calc(100% - 2rem));
+  margin-inline: auto;
 }
 
-.sectionTitle {
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  font-weight: 700;
+.head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.eyebrow {
+  color: #088395;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   margin-bottom: 0.5rem;
-  text-align: center;
-  color: var(--color-text);
-  letter-spacing: -0.02em;
 }
 
-.sectionTitleLine {
-  width: 48px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
-  border-radius: var(--radius-full);
-  margin: 0 auto 1rem;
+.head h2 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: clamp(1.5rem, 3.5vw, 2.15rem);
+  line-height: 1.25;
+  color: #0f172a;
+  margin-bottom: 0.65rem;
 }
 
-.sectionSubtitle {
-  font-size: clamp(0.9375rem, 1.5vw, 1.125rem);
-  color: var(--color-text-muted);
-  text-align: center;
-  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
+.head p {
+  color: #5b6b7c;
+  font-size: 1.02rem;
 }
 
-/* Services grid on inner pages */
-.servicesGridInner {
+.grid {
   display: grid;
   gap: 1.25rem;
   grid-template-columns: 1fr;
 }
 
-@media (min-width: 576px) {
-  .servicesGridInner {
-    grid-template-columns: repeat(2, 1fr);
-  }
+@media (min-width: 600px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (min-width: 768px) {
-  .servicesGridInner {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
+@media (min-width: 992px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
 }
 
-.serviceCard {
-  background: var(--color-surface);
-  border-radius: var(--radius-lg);
-  padding: clamp(1.25rem, 3vw, 1.5rem);
-  box-shadow: var(--shadow-md);
-  transition: transform var(--transition), box-shadow var(--transition);
+.card {
+  background: #ffffff;
+  border: 1px solid #dce5ee;
+  border-radius: 14px;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  box-shadow: 0 8px 24px rgba(6, 38, 54, 0.08);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
   height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(6, 38, 54, 0.12);
+}
+
+.icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(10, 77, 104, 0.08);
+  color: #088395;
+  display: grid;
+  place-items: center;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  font-weight: 750;
+  margin-bottom: 0.5rem;
+  color: #0f172a;
+}
+
+.card p {
+  color: #5b6b7c;
+  font-size: 0.95rem;
+}
+
+.whyList {
+  list-style: none;
+  display: grid;
+  gap: 0.85rem;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.whyList li {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  background: #ffffff;
+  border: 1px solid #dce5ee;
+  border-radius: 10px;
+  padding: 1rem 1.15rem;
+  box-shadow: 0 8px 24px rgba(6, 38, 54, 0.08);
+}
+
+.whyList i {
+  color: #088395;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.pricingGrid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .pricingGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 992px) {
+  .pricingGrid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.pricingCard {
+  background: #ffffff;
+  border: 1px solid #dce5ee;
+  border-radius: 14px;
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(6, 38, 54, 0.08);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  border: 1px solid var(--color-border);
-  position: relative;
-  overflow: hidden;
+  height: 100%;
 }
 
-.serviceCard::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
-  opacity: 0;
-  transition: opacity var(--transition);
-}
-
-.serviceCard:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
-}
-
-.serviceCard:hover::before {
-  opacity: 1;
-}
-
-.serviceIcon {
-  font-size: clamp(2rem, 3vw, 2.5rem);
-  color: var(--color-primary);
+.pricingCard h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #0a4d68;
   margin-bottom: 0.75rem;
 }
 
-.serviceCard h3 {
-  font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: var(--color-primary);
+.originalPrice {
+  color: #5b6b7c;
+  text-decoration: line-through;
+  font-size: 0.9rem;
 }
 
-.serviceCard p {
-  font-size: 0.9375rem;
-  line-height: 1.6;
-  color: var(--color-text-muted);
-  margin: 0;
+.price {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0.25rem 0 0.5rem;
 }
 
-.whyChooseList {
-  list-style: none;
-  padding: 0;
-  max-width: 640px;
+.discount {
+  color: #5b6b7c;
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+.contactWrap {
+  max-width: 560px;
   margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid #dce5ee;
+  border-radius: 14px;
+  padding: clamp(1.25rem, 4vw, 2rem);
+  box-shadow: 0 8px 24px rgba(6, 38, 54, 0.08);
 }
 
-.whyChooseList li {
-  font-size: clamp(0.9375rem, 1.25vw, 1.0625rem);
-  margin-bottom: 0.875rem;
-  color: var(--color-text-muted);
-  line-height: 1.5;
-  padding-left: 0.25rem;
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
+.contactIntro {
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
-.whyChooseList li i {
-  color: var(--color-primary);
-  margin-right: 0;
-  flex-shrink: 0;
-  margin-top: 0.2em;
+.contactIntro h2 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #0f172a;
+}
+
+.contactIntro p {
+  color: #5b6b7c;
 }

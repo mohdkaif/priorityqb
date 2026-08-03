@@ -1,61 +1,70 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useState } from 'react';
+
+const LINKS = [
+  { href: '/', label: 'Home' },
+  { href: '/services', label: 'QB Setup' },
+  { href: '/quickbooks', label: 'Bookkeeping' },
+  { href: '/payroll', label: 'Payroll' },
+  { href: '/support', label: 'Support' },
+  { href: '/financial', label: 'Reporting' },
+  { href: '/pricing', label: 'Pricing' },
+  { href: '/contact', label: 'Contact' },
+];
 
 export default function Header() {
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+
   return (
-    <>
-      <div className="promo-banner">
+    <header className="siteHeader">
+      <div className="promoBar">
         Get Live Expert Assisted FREE for 30 days.{' '}
-        <a href="#" data-bs-toggle="modal" data-bs-target="#contactModal">
-          Buy now
-        </a>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#contactModal">
+          Claim offer
+        </button>
       </div>
-      <nav
-        className="navbar navbar-expand-lg navbar-dark"
-        style={{ backgroundColor: '#2c3e50' }}
-      >
-        <div className="container">
-          <Link className="navbar-brand" href="/">
-            Priority QB Services
+      <div className="siteContainer">
+        <div className="navBar">
+          <Link href="/" className="brand" onClick={() => setOpen(false)}>
+            <span className="brandMark">PQ</span>
+            <span>Priority QB Services</span>
           </Link>
           <button
-            className="navbar-toggler"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+            className="navToggle"
+            aria-label="Toggle menu"
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
           >
-            <span className="navbar-toggler-icon" />
+            <i className={`fas ${open ? 'fa-times' : 'fa-bars'}`} />
           </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
-                <Link className="nav-link" href="/">
-                  Home
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" href="/#services">
-                  Services
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" href="/#pricing">
-                  Pricing
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" href="/#contact">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <nav className={`navMenu ${open ? 'open' : ''}`} aria-label="Main">
+            {LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={pathname === link.href ? 'active' : ''}
+                onClick={() => setOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <button
+              type="button"
+              className="btn btnPrimary navCta"
+              data-bs-toggle="modal"
+              data-bs-target="#contactModal"
+              onClick={() => setOpen(false)}
+            >
+              Get Started
+            </button>
+          </nav>
         </div>
-      </nav>
-    </>
+      </div>
+    </header>
   );
 }
