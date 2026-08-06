@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import PageHero from '@/components/PageHero';
+import EnquireButton from '@/components/EnquireButton';
 import styles from '../services.module.css';
 
 export const metadata = { title: 'Payroll - Priority QB Services' };
@@ -48,7 +49,7 @@ export default function PayrollPage() {
             <li><i className="fas fa-check-circle" /><span><strong>Customized Payroll Management:</strong> We tailor payroll solutions to fit your business needs.</span></li>
           </ul>
           <div className={styles.ctaRow}>
-            <Link href="/contact" className="btn btnPrimary">Start payroll setup</Link>
+            <EnquireButton label="Start payroll setup" />
             <Link href="/support" className="btn btnOutline">Get support</Link>
           </div>
         </div>

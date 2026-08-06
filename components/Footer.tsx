@@ -1,13 +1,30 @@
+'use client';
+
 import Link from 'next/link';
+import { useSiteUi } from './Layout';
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const { openEnquiry } = useSiteUi();
+
   return (
     <footer className="siteFooter">
       <div className="siteContainer">
         <div className="footerGrid">
           <div>
-            <div className="footerBrand">Priority QB Services</div>
+            <div className="footerBrand">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/priority-qb-logo.png"
+                alt="Priority QB"
+                className="footerLogo"
+                width={40}
+                height={40}
+              />
+              <span>
+                Priority <em>QB</em> Services
+              </span>
+            </div>
             <p className="footerMuted">
               Simplifying financial management with expert QuickBooks setup,
               bookkeeping, payroll, and support.
@@ -25,9 +42,9 @@ export default function Footer() {
             <h4>Company</h4>
             <Link href="/pricing">Pricing</Link>
             <Link href="/contact">Contact</Link>
-            <a href="#" data-bs-toggle="modal" data-bs-target="#contactModal">
+            <button type="button" className="footerLinkBtn" onClick={openEnquiry}>
               Request a quote
-            </a>
+            </button>
           </div>
         </div>
         <div className="footerBottom">

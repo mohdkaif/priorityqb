@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import PageHero from '@/components/PageHero';
+import EnquireButton from '@/components/EnquireButton';
 import styles from '../services.module.css';
 
 export const metadata = { title: 'Technical Support - Priority QB Services' };
@@ -48,7 +49,7 @@ export default function SupportPage() {
             <li><i className="fas fa-check-circle" /><span><strong>Proactive Solutions:</strong> We help prevent issues before they arise with proactive monitoring and support.</span></li>
           </ul>
           <div className={styles.ctaRow}>
-            <Link href="/contact" className="btn btnPrimary">Request support</Link>
+            <EnquireButton label="Request support" />
             <Link href="/financial" className="btn btnOutline">Financial reporting</Link>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import PageHero from '@/components/PageHero';
+import EnquireButton from '@/components/EnquireButton';
 import styles from '../services.module.css';
 
 export const metadata = { title: 'Financial Reporting - Priority QB Services' };
@@ -48,7 +49,7 @@ export default function FinancialPage() {
             <li><i className="fas fa-check-circle" /><span><strong>Error-Free & Compliant Reporting:</strong> Minimize reporting errors and maintain compliance with financial standards.</span></li>
           </ul>
           <div className={styles.ctaRow}>
-            <Link href="/contact" className="btn btnPrimary">Request a report consult</Link>
+            <EnquireButton label="Request a report consult" />
             <Link href="/pricing" className="btn btnOutline">See pricing</Link>
           </div>
         </div>

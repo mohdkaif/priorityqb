@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import { useSiteUi } from './Layout';
 
 const LINKS = [
   { href: '/', label: 'Home' },
@@ -18,20 +19,30 @@ const LINKS = [
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const { openEnquiry } = useSiteUi();
 
   return (
     <header className="siteHeader">
       <div className="promoBar">
-        Get Live Expert Assisted FREE for 30 days.{' '}
-        <button type="button" data-bs-toggle="modal" data-bs-target="#contactModal">
-          Claim offer
+        <strong>SUMMER SAVINGS</strong> — Live expert help FREE for 30 days.{' '}
+        <button type="button" onClick={openEnquiry}>
+          Buy now
         </button>
       </div>
       <div className="siteContainer">
         <div className="navBar">
           <Link href="/" className="brand" onClick={() => setOpen(false)}>
-            <span className="brandMark">PQ</span>
-            <span>Priority QB Services</span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/priority-qb-logo.png"
+              alt="Priority QB"
+              className="brandLogo"
+              width={44}
+              height={44}
+            />
+            <span className="brandText">
+              Priority <em>QB</em>
+            </span>
           </Link>
           <button
             type="button"
@@ -56,11 +67,12 @@ export default function Header() {
             <button
               type="button"
               className="btn btnPrimary navCta"
-              data-bs-toggle="modal"
-              data-bs-target="#contactModal"
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                setOpen(false);
+                openEnquiry();
+              }}
             >
-              Get Started
+              Get started
             </button>
           </nav>
         </div>

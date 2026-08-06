@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import PageHero from '@/components/PageHero';
+import EnquireButton from '@/components/EnquireButton';
 import styles from '../services.module.css';
 
 export const metadata = { title: 'Bookkeeping - Priority QB Services' };
@@ -18,6 +19,18 @@ export default function QuickbooksPage() {
       <PageHero eyebrow="Bookkeeping" title="Bookkeeping & Accounting" description="Comprehensive bookkeeping and accounting tailored to your business — accurate, up-to-date, and compliant." />
       <section className={styles.wrap}>
         <div className={styles.inner}>
+          <div className={styles.mediaStrip}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=1200&q=80"
+              alt="Bookkeeping documents and calculator"
+            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80"
+              alt="Professional reviewing financial records"
+            />
+          </div>
           <div className={styles.head}>
             <p className={styles.eyebrow}>Services</p>
             <h2>Keep your books in shape</h2>
@@ -48,7 +61,7 @@ export default function QuickbooksPage() {
             <li><i className="fas fa-check-circle" /><span><strong>Time-Saving:</strong> Let us handle the numbers so you can focus on growing your business.</span></li>
           </ul>
           <div className={styles.ctaRow}>
-            <Link href="/contact" className="btn btnPrimary">Talk to us</Link>
+            <EnquireButton label="Talk to us" />
             <Link href="/services" className="btn btnOutline">QB Setup</Link>
           </div>
         </div>

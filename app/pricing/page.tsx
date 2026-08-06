@@ -1,6 +1,7 @@
 'use client';
 
 import PageHero from '@/components/PageHero';
+import EnquireButton from '@/components/EnquireButton';
 import styles from '../services.module.css';
 
 const PLANS = [
@@ -32,14 +33,7 @@ export default function PricingPage() {
                 <div className={styles.originalPrice}>{plan.original}</div>
                 <div className={styles.price}>{plan.price}</div>
                 <p className={styles.discount}>{plan.note}</p>
-                <button
-                  type="button"
-                  className="btn btnPrimary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#contactModal"
-                >
-                  Choose Plan
-                </button>
+                <EnquireButton label="Choose plan" />
               </div>
             ))}
           </div>

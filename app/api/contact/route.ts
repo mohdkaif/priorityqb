@@ -5,7 +5,7 @@ import { saveLead } from '@/lib/leads';
 const NAME_REGEX = /^[A-Za-z\s]+$/u;
 const NAME_NO_CJK = /[\u0400-\u04FF\u4E00-\u9FFF\u3040-\u309F\u30A0-\u30FF]/u;
 const PHONE_REGEX = /^\+?[0-9]{10}$/u;
-const MESSAGE_REGEX = /^[A-Za-z0-9\s.,!?]+$/u;
+const MESSAGE_REGEX = /^[A-Za-z0-9\s.,!?:;\-+()'"/\n]+$/u;
 
 function validate(body: { name?: string; email?: string; phone?: string; message?: string }) {
   const errors: Record<string, string> = {};

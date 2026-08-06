@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import styles from './home.module.css';
+import { useSiteUi } from '@/components/Layout';
 
 const SERVICES = [
   {
@@ -55,7 +58,14 @@ const TESTIMONIALS = [
   },
 ];
 
+const HERO_IMG =
+  'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=80';
+const SHOWCASE_IMG =
+  'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80';
+
 export default function HomePage() {
+  const { openEnquiry } = useSiteUi();
+
   return (
     <>
       <section className={styles.hero}>
@@ -65,39 +75,41 @@ export default function HomePage() {
               <p className={styles.heroEyebrow}>
                 <i className="fas fa-bolt" /> QuickBooks specialists
               </p>
-              <h1>Simplify your finances with Priority QB</h1>
+              <h1>
+                Business done <span>right</span>
+              </h1>
               <p className={styles.heroLead}>
-                Simplifying your financial management with QuickBooks solutions —
-                setup, bookkeeping, payroll, support, and reporting.
+                Setup, bookkeeping, payroll, and support — so you can run your
+                business with confidence and clarity.
               </p>
               <div className={styles.heroActions}>
-                <Link href="/services" className="btn btnAccent">
-                  Explore Services
+                <button type="button" className="btn btnPrimary" onClick={openEnquiry}>
+                  Get started
+                </button>
+                <Link href="/pricing" className="btn btnGhost">
+                  See plans &amp; pricing
                 </Link>
-                <Link href="/contact" className="btn btnGhost">
-                  Contact Us
-                </Link>
+              </div>
+              <div className={styles.trustRow}>
+                <span className={styles.stars}>★★★★★</span>
+                <span>Trusted by 500+ businesses</span>
               </div>
             </div>
-            <div className={styles.heroPanel}>
-              <div className={styles.heroStats}>
-                <div className={styles.heroStat}>
-                  <strong>500+</strong>
-                  <span>Happy Clients</span>
-                </div>
-                <div className={styles.heroStat}>
-                  <strong>10+</strong>
-                  <span>Years Experience</span>
-                </div>
-                <div className={styles.heroStat}>
-                  <strong>99%</strong>
-                  <span>Satisfaction</span>
-                </div>
-                <div className={styles.heroStat}>
-                  <strong>24/7</strong>
-                  <span>Support Available</span>
-                </div>
+            <div className={styles.heroVisual}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={HERO_IMG}
+                alt="Business professional using financial software"
+              />
+              <div className={styles.floatCard}>
+                <i className="fas fa-file-invoice-dollar" style={{ color: 'var(--qb-green)' }} />
+                Invoices on track
               </div>
+              <div className={styles.floatCard}>
+                <i className="fas fa-chart-pie" style={{ color: 'var(--qb-blue)' }} />
+                Cash flow clear
+              </div>
+              <div className={styles.floatPill}>Automate monthly snapshot</div>
             </div>
           </div>
         </div>
@@ -132,6 +144,32 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="section" style={{ background: 'var(--surface-2)' }}>
+        <div className="siteContainer">
+          <div className={styles.showcase}>
+            <div className={styles.showcaseImg}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={SHOWCASE_IMG}
+                alt="Financial reports and bookkeeping workspace"
+              />
+            </div>
+            <div className={styles.showcaseCopy}>
+              <p className="sectionEyebrow">Built for growing teams</p>
+              <h2>Books that stay clean — without the busywork</h2>
+              <p>
+                From chart-of-accounts setup to monthly reconciliations and payroll,
+                Priority QB Services keeps your QuickBooks accurate so you can focus
+                on customers, not spreadsheets.
+              </p>
+              <button type="button" className="btn btnAccent" onClick={openEnquiry}>
+                Tell us about your business
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className={`section ${styles.testimonials}`}>
         <div className="siteContainer">
           <div className="sectionHead">
@@ -155,10 +193,10 @@ export default function HomePage() {
           <h2>Ready to take control of your finances?</h2>
           <p>Get in touch today — or browse our pricing plans and pick what fits.</p>
           <div className={styles.heroActions} style={{ justifyContent: 'center' }}>
-            <Link href="/contact" className="btn btnAccent">
-              Contact Us
-            </Link>
-            <Link href="/pricing" className="btn btnGhost">
+            <button type="button" className="btn btnAccent" onClick={openEnquiry}>
+              Get started
+            </button>
+            <Link href="/pricing" className="btn btnGhost" style={{ borderColor: '#fff', color: '#fff' }}>
               View Pricing
             </Link>
           </div>

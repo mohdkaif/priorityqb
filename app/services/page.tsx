@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import PageHero from '@/components/PageHero';
+import EnquireButton from '@/components/EnquireButton';
 import styles from '../services.module.css';
 
 export const metadata = {
@@ -44,6 +45,18 @@ export default function ServicesPage() {
       />
       <section className={styles.wrap}>
         <div className={styles.inner}>
+          <div className={styles.mediaStrip}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
+              alt="Business analytics dashboard for QuickBooks setup"
+            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80"
+              alt="Team collaborating on accounting workflows"
+            />
+          </div>
           <div className={styles.head}>
             <p className={styles.eyebrow}>What&apos;s included</p>
             <h2>How we set you up for success</h2>
@@ -99,9 +112,7 @@ export default function ServicesPage() {
             </li>
           </ul>
           <div className={styles.ctaRow}>
-            <Link href="/contact" className="btn btnPrimary">
-              Get a quote
-            </Link>
+            <EnquireButton label="Get a quote" />
             <Link href="/pricing" className="btn btnOutline">
               View pricing
             </Link>

@@ -2,22 +2,22 @@
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(ellipse 70% 55% at 85% 15%, rgba(5, 191, 219, 0.28), transparent 55%),
-    radial-gradient(ellipse 55% 45% at 5% 90%, rgba(232, 93, 4, 0.2), transparent 50%),
-    linear-gradient(150deg, #062636 0%, #0a4d68 48%, #088395 100%);
-  color: #fff;
-  padding: clamp(3rem, 9vw, 6rem) 0 clamp(3.5rem, 8vw, 5.5rem);
+    radial-gradient(ellipse 60% 50% at 85% 20%, rgba(44, 109, 240, 0.1), transparent 55%),
+    radial-gradient(ellipse 45% 40% at 10% 85%, rgba(44, 160, 28, 0.08), transparent 50%),
+    #f5f6f8;
+  color: var(--ink);
+  padding: clamp(2.75rem, 8vw, 5rem) 0 clamp(3rem, 7vw, 4.5rem);
 }
 
 .heroGrid {
   display: grid;
-  gap: 2rem;
+  gap: 2.5rem;
   align-items: center;
 }
 
 @media (min-width: 900px) {
   .heroGrid {
-    grid-template-columns: 1.15fr 0.85fr;
+    grid-template-columns: 1fr 1.05fr;
     gap: 3rem;
   }
 }
@@ -26,63 +26,127 @@
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 999px;
-  padding: 0.4rem 0.85rem;
+  color: var(--qb-blue);
   font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-weight: 800;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin-bottom: 1.1rem;
+  margin-bottom: 1rem;
 }
 
 .hero h1 {
-  font-family: 'Source Serif 4', Georgia, serif;
-  font-size: clamp(2rem, 5.5vw, 3.4rem);
-  line-height: 1.12;
-  font-weight: 700;
+  font-size: clamp(2.15rem, 5.5vw, 3.5rem);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
   margin-bottom: 1rem;
   max-width: 14ch;
+  color: var(--ink);
+}
+
+.hero h1 span {
+  color: var(--qb-blue);
 }
 
 .heroLead {
-  font-size: clamp(1.05rem, 2vw, 1.2rem);
-  color: rgba(255, 255, 255, 0.88);
-  max-width: 38ch;
-  margin-bottom: 1.75rem;
+  font-size: clamp(1.05rem, 2vw, 1.15rem);
+  color: var(--muted);
+  max-width: 40ch;
+  margin-bottom: 1.5rem;
 }
 
 .heroActions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
+  margin-bottom: 1.25rem;
 }
 
-.heroPanel {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 20px;
-  padding: clamp(1.25rem, 3vw, 1.75rem);
-  backdrop-filter: blur(8px);
+.trustRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: 600;
 }
 
-.heroStats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+.stars {
+  color: var(--qb-green);
+  letter-spacing: 0.08em;
 }
 
-.heroStat strong {
-  display: block;
-  font-size: clamp(1.5rem, 3vw, 1.85rem);
-  font-weight: 800;
+.heroVisual {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  box-shadow: var(--shadow-lg);
+  animation: heroFloat 6s ease-in-out infinite;
+}
+
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.heroVisual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.floatCard {
+  position: absolute;
+  background: #fff;
+  border: 1.5px solid transparent;
+  border-radius: 14px;
+  padding: 0.75rem 1rem;
+  box-shadow: var(--shadow);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-image:
+    linear-gradient(#fff, #fff),
+    linear-gradient(135deg, #2ca01c, #2c6df0);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  animation: cardIn 0.6s ease both;
+}
+
+.floatCard:nth-child(2) {
+  top: 12%;
+  left: 6%;
+  animation-delay: 0.15s;
+}
+
+.floatCard:nth-child(3) {
+  bottom: 18%;
+  right: 6%;
+  animation-delay: 0.3s;
+}
+
+.floatPill {
+  position: absolute;
+  bottom: 12%;
+  left: 8%;
+  background: var(--promo);
   color: #fff;
+  border-radius: var(--radius-pill);
+  padding: 0.45rem 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+  animation: cardIn 0.6s ease 0.45s both;
 }
 
-.heroStat span {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.75);
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .servicesGrid {
@@ -112,9 +176,47 @@
 .serviceLink .featureCard span {
   margin-top: auto;
   padding-top: 1rem;
-  color: var(--primary-mid);
+  color: var(--qb-blue);
   font-weight: 700;
   font-size: 0.9rem;
+}
+
+.showcase {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .showcase {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+.showcaseImg {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 5 / 4;
+}
+
+.showcaseImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.showcaseCopy h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.showcaseCopy p {
+  color: var(--muted);
+  margin-bottom: 1.25rem;
 }
 
 .testimonials {
@@ -136,6 +238,12 @@
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 1.5rem;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.testimonialCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
 }
 
 .testimonialCard p {
@@ -147,19 +255,20 @@
 .testimonialCard h4 {
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--primary);
+  color: var(--qb-blue);
 }
 
 .ctaBand {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-mid) 100%);
+  background: linear-gradient(135deg, var(--promo) 0%, #2a1f5c 55%, var(--qb-blue-dark) 100%);
   color: #fff;
   padding: clamp(2.5rem, 6vw, 3.5rem) 0;
   text-align: center;
 }
 
 .ctaBand h2 {
-  font-family: 'Source Serif 4', Georgia, serif;
   font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
   margin-bottom: 0.65rem;
 }
 
@@ -168,4 +277,12 @@
   margin-bottom: 1.35rem;
   max-width: 42ch;
   margin-inline: auto;
+}
+
+@media (max-width: 600px) {
+  .floatCard:nth-child(2),
+  .floatCard:nth-child(3),
+  .floatPill {
+    display: none;
+  }
 }
